@@ -1,0 +1,48 @@
+<i *ngIf="isLoading" class="fa fa-spinner fa-spin fa-3x"></i>
+
+<form #myForm="ngForm" (ngSubmit)="getFollowers(userName.value)">
+    <div class="input-group">
+        <input type="text"
+               class="form-control"
+               ngControl="userName"
+               #userName="ngForm"
+               placeholder="User name"
+               required
+               minlength="3"
+               (focus)="searchFocused = true"
+               (blur)="searchFocused = false">
+        <span class="input-group-btn">
+            <button class="btn btn-primary" type="submit" [disabled]="!myForm.valid">Get followers</button>
+        </span>
+    </div>
+    <div *ngIf="userName.touched && !userName.valid">
+        <div class="alert alert-danger"
+             *ngIf="userName.errors.required">
+            Name is required.
+        </div>
+        <div class="alert alert-danger"
+             *ngIf="userName.errors.minlength">
+            Name should be minimum {{userName.errors.minlength.requiredLength}} characters.
+        </div>
+    </div>
+</form>
+
+<!-- Error message -->
+<div class="alert alert-danger" *ngIf="showErrorMessage && !searchFocused">Cannot find user with name: {{userName.value}}</div>
+
+<div *ngIf="!showErrorMessage">
+    <h2>@{{ user.login }}</h2>
+    <img class="avatar" src="{{ user.avatar_url }}">
+
+    <h3>Followers</h3>
+    <div *ngFor="#follower of followers" class="media">
+        <div class="media-left">
+            <a href="#">
+                <img class="media-object avatar" src="{{ follower.avatar_url }}" alt="{{ follower.login }}">
+            </a>
+        </div>
+        <div class="media-body">
+            <h4 class="media-heading">{{ follower.login }}</h4>
+        </div>
+    </div>
+</div>

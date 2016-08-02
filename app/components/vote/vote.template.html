@@ -1,0 +1,5 @@
+<div class="voter">
+    <i class="glyphicon glyphicon-chevron-up" [class.highlight]="myVote == 1" (click)="onChange('+1')"></i>
+    <span class="count">{{votesCount}}</span>
+    <i class="glyphicon glyphicon-chevron-down" [class.highlight]="myVote == -1" (click)="onChange('-1')"></i>
+</div>

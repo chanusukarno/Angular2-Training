@@ -1,0 +1,67 @@
+<div class="my-content">
+    <h1 class="title">Learning Angular 2</h1>
+
+    <!-- courses -->
+    <div class="widget">
+        <courses></courses>
+    </div>
+
+    <!-- star-rating -->
+    <div class="widget">
+        <star-rating></star-rating>
+    </div>
+
+    <!-- favourite -->
+    <div class="widget">
+        <favourite [favouritesTotal]="favouritesTotal" [isFavourite]="true"
+                   (change)="onCountChange($event)"></favourite>
+    </div>
+
+    <!-- vote -->
+    <div class="widget">
+        <vote [votesCount]="10" [myVote]="1" (change)="onVoteChange($event)"></vote>
+    </div>
+
+    <!-- tweets -->
+    <div class="widget">
+        <tweet *ngFor="#tweet of tweets" [tweet]="tweet"></tweet>
+    </div>
+
+    <!-- zippy -->
+    <div class="widget">
+        <zippy title="This is the title 1">
+            Sample content for the zippy body 1
+        </zippy>
+        <zippy title="This is the title 2">
+            Sample content for the zippy body 2
+        </zippy>
+        <zippy title="This is the title 3">
+            Sample content for the zippy body 3
+        </zippy>
+    </div>
+
+    <!-- subscription form -->
+    <div class="widget">
+        <h4 class="heading">Subscription Form</h4>
+        <subscription-form></subscription-form>
+    </div>
+
+    <!-- change password form -->
+    <div class="widget">
+        <h4 class="heading">Change Password Form</h4>
+        <change-password></change-password>
+    </div>
+
+    <!-- observables examples -->
+    <div class="widget">
+        <h4 class="heading">Observables Examples</h4>
+        <observables></observables>
+    </div>
+
+    <!-- Github followers -->
+    <div class="widget">
+        <h4 class="heading">Github Followers</h4>
+        <github-followers></github-followers>
+    </div>
+
+</div>
